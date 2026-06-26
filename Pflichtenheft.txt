@@ -1,0 +1,60 @@
+ Pflichtenheft – HelpDesk Pro
+
+Auftragnehmer: Garip Soner
+Bezug: Lastenheft HelpDesk Pro (siehe `Lastenheft.txt`)
+Stand: Grobentwurf zur Projektgenehmigung
+
+
+
+1. Lösungsansatz
+
+Umsetzung als webbasierte PHP-Anwendung (MVC-Architektur) mit MariaDB-
+Datenbank sowie einem separaten Python-Modul zur Serverüberwachung.
+Zwei Benutzerrollen bilden die Anforderungen aus dem Lastenheft ab:
+Benutzer und Techniker.
+
+2. Umsetzung der Anforderungen
+
+| Lastenheft-Nr. | Umsetzung (Pflichtenheft) |
+|----------------|---------------------------|
+| L-01 | Webformular `tickets/create.php` – Titel, Beschreibung, Kategorie, Priorität |
+| L-02 | Ansicht `tickets/list.php`, gefiltert auf `created_by = aktueller Benutzer` |
+| L-03 | Techniker-Dashboard mit Statuswechsel (offen → in_bearbeitung → geloest → geschlossen) |
+| L-04 | Feld `assigned_to` in Tabelle `tickets`, referenziert `users.id` |
+| L-05 | Tabelle `comments`, 1:n-Beziehung zu `tickets` |
+| L-06 | Tabelle `categories` (n:1 zu `tickets`), Feld `priority` als ENUM |
+| L-07 | Python-Skript (`monitor.py`) prüft per ICMP-Ping die Erreichbarkeit und liest per SSH (paramiko) die CPU-Auslastung aus |
+| L-08 | Bei Nichterreichbarkeit erstellt `monitor.py` automatisiert einen Datensatz in `tickets` (über DB-Verbindung), Quelle als `source = 'monitoring'` gekennzeichnet |
+| L-09 | Session-basierte Authentifizierung, Rollenprüfung je Controller-Methode |
+| L-10 | Reduktion auf zwei Rollen, klar getrennte Dashboards je Rolle |
+| L-11 | `password_hash()`/`password_verify()` (bcrypt), Prepared Statements (PDO), `htmlspecialchars()` gegen XSS |
+| L-12 | Bereitstellung über Apache/PHP (XAMPP lokal, später interner Webserver) |
+
+3. Technische Architektur
+
+| Bereich | Technologie | Begründung |
+|---------|-------------|------------|
+| Backend | PHP 8.x, OOP/MVC | native Datenbankunterstützung, wartbarer Code |
+| Datenbank | MariaDB (auf Hyper-V-VM) | getrennte Datenhaltung vom Anwendungsserver |
+| Frontend | HTML5, CSS3, Vanilla JS | kein Framework nötig für diesen Umfang |
+| Monitoring | Python 3.x + paramiko | SSH-Bibliothek, geeignet für Systemabfragen |
+| Versionsverwaltung | Git / GitHub | nachvollziehbare Entwicklungshistorie |
+
+4. Datenmodell (Kerntabellen)
+
+
+users    → id, name, email, password, role, created_at
+categories → id, name
+tickets  → id, title, description, priority, status, category_id,
+           created_by, assigned_to, source, created_at, updated_at
+comments → id, ticket_id, user_id, message, created_at
+servers  → id, name, ip_address, ssh_user, ssh_port, created_at
+server_logs → id, server_id, status, cpu_percent, checked_at
+
+
+
+5. Abnahmekriterien
+
+- Alle Anforderungen L-01 bis L-12 sind funktionsfähig nachweisbar
+- Sicherheitsmaßnahmen (SQL-Injection-, XSS-Schutz) sind im Code nachweisbar
+- Automatische Ticket-Erstellung bei simulierter Nichterreichbarkeit funktioniert

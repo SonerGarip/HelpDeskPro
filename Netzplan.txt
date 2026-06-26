@@ -1,0 +1,65 @@
+Netzplan – HelpDesk Pro
+
+Der Netzplan stellt die **logischen Abhängigkeiten** zwischen den
+Projektphasen dar (Vorgangsknoten-Methode). Da das Projekt von einer
+einzelnen Person bearbeitet wird, erfolgt die tatsächliche Durchführung
+weitgehend sequenziell – der Netzplan zeigt jedoch, welche Vorgänge
+**fachlich** parallelisierbar wären bzw. voneinander abhängen.
+
+ Vorgangsliste
+
+| Code | Vorgang | Dauer | Vorgänger |
+|------|---------|-------|-----------|
+| A | Analysephase | 10 Std. | – |
+| B | Entwurfsphase | 8 Std. | A |
+| C | Backend (PHP) | 22 Std. | B |
+| D | Python-Monitoring | 12 Std. | B |
+| E | Frontend | 14 Std. | C |
+| F | Testphase | 8 Std. | E, D |
+| G | Dokumentation (Fertigstellung) | 6 Std. | F |
+
+> Hinweis: Projektbegleitende Notizen für die Dokumentation entstehen
+> bereits während aller Phasen (siehe IHK-Leitfaden, Abschnitt 3.7) – der
+> Vorgang **G** bildet hier nur die abschließende Fertigstellung ab.
+
+## Diagramm
+
+```mermaid
+graph LR
+    A["A: Analysephase
+10 Std."] --> B["B: Entwurfsphase
+8 Std."]
+    B --> C["C: Backend PHP
+22 Std."]
+    B --> D["D: Python-Monitoring
+12 Std."]
+    C --> E["E: Frontend
+14 Std."]
+    E --> F["F: Testphase
+8 Std."]
+    D --> F
+    F --> G["G: Dokumentation
+6 Std."]
+
+    classDef critical fill:#f8d7da,stroke:#c0392b,stroke-width:2px;
+    classDef normal fill:#d5e8f0,stroke:#1f4e79,stroke-width:1px;
+    class A,B,C,E,F,G critical;
+    class D normal;
+```
+
+*(rot = kritischer Pfad, blau = unkritischer Vorgang mit Pufferzeit)*
+
+Kritischer-Pfad-Berechnung
+
+- Pfad 1 (kritisch): A → B → C → E → F → G
+  = 10 + 8 + 22 + 14 + 8 + 6 = **68 Stunden**
+- Pfad 2 (unkritisch): A → B → D → F → G
+  = 10 + 8 + 12 + 8 + 6 = 44 Stunden
+  → **Puffer (Slack) von D = 68 − 44 = 24 Stunden**
+
+Der kritische Pfad bestimmt die Mindestprojektdauer (68 Std., fachlich
+gesehen). Da nur eine Person am Projekt arbeitet, erfolgt **D
+(Python-Monitoring)** in der Praxis nicht parallel, sondern wird im
+Zeitplan zeitlich nach C/E eingeordnet – die Restzeit bis 80 Std. ergibt
+sich aus dieser sequenziellen Bearbeitung statt aus echter
+Parallelisierung.

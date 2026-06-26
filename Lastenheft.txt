@@ -1,0 +1,67 @@
+Lastenheft – HelpDesk Pro
+
+**Auftraggeber:** TechSolutions GmbH (fiktiv), IT-Abteilung
+**Projekt:** Internes Ticket-Management-System mit Server-Monitoring
+**Stand:** Grobentwurf zur Projektgenehmigung
+
+---
+
+1. Ausgangssituation
+
+Support-Anfragen werden derzeit ausschließlich per E-Mail oder Telefon an die
+IT-Abteilung gemeldet. Dies führt zu:
+
+- verlorenen oder doppelt bearbeiteten Anfragen
+- fehlender Priorisierung kritischer Probleme
+- mangelnder Transparenz über den Bearbeitungsstatus
+- keiner zentralen Übersicht über den Zustand der eingesetzten Server
+
+2. Zielsetzung
+
+Der Auftraggeber wünscht eine webbasierte Anwendung, mit der Mitarbeiter
+Support-Tickets erfassen und verfolgen können, und die zugleich den Zustand
+eines Servers automatisch überwacht.
+
+3. Anforderungen des Auftraggebers
+
+3.1 Funktionale Anforderungen (fachlich, lösungsneutral)
+
+| Nr. | Anforderung |
+|-----|-------------|
+| L-01 | Mitarbeiter müssen Probleme (Tickets) melden können |
+| L-02 | Mitarbeiter müssen den Status ihrer eigenen Anfragen einsehen können |
+| L-03 | Zuständige Mitarbeiter (Techniker) müssen Anfragen bearbeiten und den Status ändern können |
+| L-04 | Es muss erkennbar sein, wer welches Ticket bearbeitet |
+| L-05 | Kommunikation zu einem Ticket muss nachvollziehbar dokumentiert sein (Kommentare) |
+| L-06 | Tickets müssen nach Kategorie und Priorität unterscheidbar sein |
+| L-07 | Der Zustand des Servers (Erreichbarkeit, Auslastung) soll automatisch überwacht werden |
+| L-08 | Bei einem Serverproblem soll automatisch eine Meldung (Ticket) erzeugt werden, ohne manuelles Eingreifen |
+
+3.2 Nicht-funktionale Anforderungen
+
+| Nr. | Anforderung |
+|-----|-------------|
+| L-09 | Zugriff nur für angemeldete, autorisierte Personen |
+| L-10 | Bedienung ohne Schulungsaufwand möglich (intuitive Oberfläche) |
+| L-11 | Schutz der gespeicherten Zugangsdaten und Ticketinhalte |
+| L-12 | Die Anwendung soll über einen Webbrowser erreichbar sein (keine Installation auf dem Endgerät) |
+
+4. Abgrenzung (was NICHT gefordert wird)
+
+- Keine mobile App (nur Browser-Anwendung)
+- Keine Anbindung an externe Ticketsysteme (z. B. Jira, Zendesk)
+- Keine automatischen E-Mail-Benachrichtigungen (zukünftige Erweiterung)
+- Keine Mehrsprachigkeit der Oberfläche
+- Überwachung beschränkt sich zunächst auf **einen** Server (Architektur soll
+  spätere Erweiterung zulassen)
+
+5. Rahmenbedingungen
+
+- Projektzeitraum: 80 Stunden 
+- Testumgebung: virtuelle Maschine (Hyper-V)
+- Einsatz ausschließlich von Open-Source-Technologien (keine Lizenzkosten)
+
+
+*Hinweis: Das Lastenheft beschreibt die Anforderungen aus Sicht des
+Auftraggebers, ohne technische Lösung vorzugeben. Die technische Umsetzung
+ist im Pflichtenheft beschrieben.*

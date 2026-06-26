@@ -1,0 +1,22 @@
+# Meilensteine – HelpDesk Pro
+
+**Gesamtprojektzeit:** 80 Stunden
+
+| Meilenstein | Beschreibung | Nach Phase | Std. (kumuliert) |
+|-------------|--------------|------------|-------------------|
+| M1 – Anforderungen abgenommen | Lastenheft/Pflichtenheft sowie Use-Case- und ER-Diagramm fertiggestellt und mit Ausbilder abgestimmt | Analysephase | 10 Std. |
+| M2 – Architektur & DB-Design stehen | Datenbankschema (6 Tabellen) und Projektarchitektur (MVC) festgelegt, Wireframes erstellt | Entwurfsphase | 18 Std. |
+| M3 – Datenbank produktiv | Alle 6 Tabellen auf der MariaDB-VM angelegt, dedizierter DB-Benutzer für PHP-Zugriff eingerichtet | Backend (Start) | 20 Std. |
+| M4 – Backend funktionsfähig | Authentifizierung, Ticket-CRUD, Rollenverwaltung (Benutzer/Techniker) lauffähig | Backend (Ende) | 42 Std. |
+| M5 – Frontend integriert | Dashboard, Ticketformulare und -ansichten an Backend angebunden, responsives Layout | Frontend | 56 Std. |
+| M6 – Monitoring aktiv | Python-Skript überwacht Test-VM per Ping/SSH, erstellt bei Nichterreichbarkeit automatisch ein Ticket | Python-Monitoring | 68 Std. |
+| M7 – Tests abgeschlossen | Funktions- und Sicherheitstests (inkl. Hyper-V-Testumgebung) durchgeführt, Fehler behoben | Testphase | 76 Std. |
+| M8 – Projekt abgegeben | IHK-Projektdokumentation fertiggestellt, Quellcode auf GitHub, Protokoll unterschrieben | Dokumentation | 80 Std. |
+
+## Hinweis zur Verwendung
+
+Diese Meilensteine dienen als Kontrollpunkte für den Soll-Ist-Vergleich
+(siehe Projektdokumentation, Kapitel "Fazit und Reflexion"). Jeder
+Meilenstein sollte mit Datum und tatsächlichem Stundenstand im
+Projektverlauf dokumentiert werden (z. B. als kurzer Eintrag im
+Berichtsheft/Notizen).
