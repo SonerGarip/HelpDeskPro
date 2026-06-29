@@ -1,0 +1,78 @@
+ANFORDERUNGSANALYSE - HelpDesk Pro
+
+
+Leitfrage: Was brauche ich, um dieses Projekt umsetzen zu können?
+
+(Hinweis: Dies ist KEINE Anforderung des Auftraggebers - das steht im
+Lastenheft. Hier geht es um die eigenen Voraussetzungen zur Durchführung
+des Projekts.)
+
+
+
+1. TECHNISCHE ANFORDERUNGEN
+
+ Bereich              | Benötigt
+ ---------------------|---------------------------------------------------
+ Entwicklungsumgebung | XAMPP (Apache, PHP 8.x) lokal unter Windows
+ IDE                  | PhpStorm (PHP), VS Code oder PyCharm (Python)
+ Datenbankserver      | MariaDB auf Hyper-V-VM (Linux), erreichbar per
+                       | Netzwerk vom lokalen Rechner aus
+ DB-Zugriff           | Separater MariaDB-Benutzer mit Passwort-Auth
+                       | (root/auth_socket reicht fuer PHP nicht aus)
+ Testumgebung         | Zweite Hyper-V-VM als Monitoring-Ziel (Linux),
+                       | SSH-Zugriff (Port 22) muss erreichbar sein
+ Python-Umgebung      | Python 3.x + paramiko-Bibliothek installiert
+ Versionsverwaltung   | Git installiert, GitHub-Repository vorhanden
+ Netzwerk             | Beide VMs und der lokale Rechner müssen sich
+                       | gegenseitig erreichen können (gleiches
+                       | virtuelles Netzwerk in Hyper-V)
+
+
+
+2. WISSENS- / KOMPETENZANFORDERUNGEN
+
+ Themenbereich                  | Status
+ -------------------------------|------------------------------------------
+ PHP OOP / MVC-Architektur      | Vorkenntnisse vorhanden, ggf. Vertiefung
+ PDO + Prepared Statements      | muss während Backend-Phase angewendet
+                                 | werden (Schutz vor SQL-Injection)
+ Sessions & Rollenprüfung      | Login-Logik muss erarbeitet werden
+ SSH-Verbindungen mit paramiko  | Grundkenntnisse vorhanden (siehe
+                                 | paramiko_ornek.py), Praxis noch offen
+ MariaDB-Benutzerverwaltung     | muss recherchiert werden (siehe
+                                 | "Pending Task": Netzwerk-User anlegen)
+ Hyper-V-Netzwerkkonfiguration  | Grundkenntnisse vorhanden, zweite VM
+                                 | muss noch eingerichtet werden
+
+
+
+3. ORGANISATORISCHE ANFORDERUNGEN
+
+ Punkt                                  | Status
+ ----------------------------------------|----------------------------------
+ Genehmigung des Projektantrags          | mit Ausbilder (Sam Bandoly)
+                                          | abzustimmen, vereinfachter Scope
+ Zugriff auf Hyper-V-Host                | vorhanden (eigene Entwicklungs-
+                                          | Umgebung)
+ Zeit Budget                              | 80 Std. laut Zeit Planung,
+                                          | einzuhalten über Meilensteine
+ Dokumentationspflicht                   | projektbegleitend, max. 12 Std.
+                                          | (15% von 80 Std.) gemäß
+                                          | IHK-Leitfaden
+
+
+
+4. OFFENE PUNKTE (vor Projektstart zu klären)
+
+- [ ] Zweite Hyper-V-VM als Monitoring-Ziel einrichten/klonen
+- [ ] Separaten MariaDB-Benutzer mit Passwort-Authentifizierung anlegen
+- [ ] Netzwerkverbindung zwischen lokalem PHP-Server und MariaDB-VM testen
+- [ ] SSH-Zugriff vom lokalen Rechner zur Test-VM verifizieren
+
+
+
+ERGEBNIS
+---------
+Aus dieser Anforderungsanalyse ergeben sich konkrete Vorbereitungsschritte,
+die noch vor bzw. zu Beginn der Backend-Phase erledigt sein müssen. Sie
+bilden die Grundlage für die Ableitung der Arbeitspakete aus dem Netzplan.

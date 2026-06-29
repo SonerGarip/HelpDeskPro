@@ -1,0 +1,93 @@
+ARBEITSPAKETE - HelpDesk Pro
+==============================
+
+Abgeleitet aus dem Netzplan (Vorgänge A-G). Jeder Vorgang wird hier in
+kleinere, konkret abarbeitbare Arbeitspakete (AP) unterteilt. Die Summe
+der Stunden je Vorgang entspricht der im Netzplan festgelegten Dauer.
+
+
+VORGANG A: ANALYSEPHASE (10 Std.)
+------------------------------------ 
+ AP-A1 | IST-Zustand beschreiben (aktuelle Supportabwicklung)       | 2 Std.
+ AP-A2 | SOLL-Konzept formulieren                                   | 2 Std.
+ AP-A3 | Lastenheft (Grob) erstellen                                | 2 Std.
+ AP-A4 | Pflichtenheft (Grob) erstellen                             | 2 Std.
+ AP-A5 | Anforderungsanalyse (Grob) + offene Punkte klaeren         | 2 Std.
+
+
+VORGANG B: ENTWURFSPHASE (8 Std.)
+------------------------------------
+ AP-B1 | Datenbankschema entwerfen (6 Tabellen, Beziehungen, Typen) | 3 Std.
+ AP-B2 | Projektstruktur (Verzeichnisbaum, MVC-Aufteilung) planen   | 2 Std.
+ AP-B3 | Wireframes / Seitenstruktur grob skizzieren                | 2 Std.
+ AP-B4 | Architekturentscheidungen dokumentieren (Begruendung)      | 1 Std.
+
+
+VORGANG C: BACKEND PHP (22 Std.)
+------------------------------------
+ AP-C1 | MariaDB-Datenbank + Tabellen auf VM anlegen                  | 2 Std.
+ AP-C2 | Separaten DB-Benutzer (Passwort-Auth) einrichten             | 1 Std.
+ AP-C3 | DB-Verbindung (config/db.php, PDO) aufbauen                  | 1 Std.
+ AP-C4 | Authentifizierung (Login/Logout, Sessions)                   | 4 Std.
+ AP-C5 | Rollenpruefung (Benutzer/Techniker) je Controller            | 2 Std.
+ AP-C6 | Ticket-Model + CRUD-Logik                                    | 5 Std.
+ AP-C7 | Comment-Model + Zuordnung zu Tickets                         | 2 Std.
+ AP-C8 | Category-Verwaltung                                          | 1 Std.
+ AP-C9 | Sicherheitsmassnahmen (Prepared Statements, htmlspecialchars)| 2 Std.
+ AP-C10| Techniker-Funktionen (Zuweisung, Statuswechsel)              | 2 Std.
+
+
+VORGANG D: PYTHON-MONITORING (12 Std.)
+------------------------------------------
+ AP-D1 | Zweite VM als Monitoring-Ziel vorbereiten                  | 2 Std.
+ AP-D2 | Ping-Check implementieren (Erreichbarkeit)                 | 2 Std.
+ AP-D3 | SSH-Verbindung mit paramiko (CPU-Auslastung auslesen)      | 4 Std.
+ AP-D4 | DB-Anbindung des Skripts (eigener Ticket-Eintrag)          | 2 Std.
+ AP-D5 | Testlauf + Fehlerbehandlung (Timeout, Verbindungsfehler)   | 2 Std.
+
+
+VORGANG E: FRONTEND (14 Std.)
+------------------------------------
+ AP-E1 | HTML+ CSS-Basislayout                                      | 3 Std.
+ AP-E2 | Login-Seite                                                | 1 Std.
+ AP-E3 | Dashboard (rollenabhaengig: Benutzer / Techniker)          | 4 Std.
+ AP-E4 | Ticket-Erstellung (Formular)                               | 2 Std.
+ AP-E5 | Ticket-Detailansicht inkl. Kommentare                      | 3 Std.
+ AP-E6 | JavaScript für dynamische Statusaktualisierung             | 1 Std.
+
+
+VORGANG F: TESTPHASE (8 Std.)
+------------------------------------
+ AP-F1 | Funktionstests Backend (alle L-Anforderungen pruefen)      | 3 Std.
+ AP-F2 | Sicherheitstests (SQL-Injection-, XSS-Versuch)             | 2 Std.
+ AP-F3 | Monitoring-Test (simulierte Nichterreichbarkeit)           | 2 Std.
+ AP-F4 | Fehlerkorrektur                                            | 1 Std.
+
+
+VORGANG G: DOKUMENTATION - ABSCHLUSS (6 Std.)
+--------------------------------------------------
+ AP-G1 | Projektdokumentation finalisieren (Text, Screenshots)      | 4 Std.
+ AP-G2 | Quellcode-Anhang zusammenstellen                           | 1 Std.
+ AP-G3 | Protokoll über die durchgeführte Projektarbeit erstellen   | 1 Std.
+
+
+GESAMTUEBERSICHT
+------------------
+ A  Analysephase           10 Std.
+ B  Entwurfsphase           8 Std.
+ C  Backend (PHP)          22 Std.
+ D  Python-Monitoring      12 Std.
+ E  Frontend               14 Std.
+ F  Testphase               8 Std.
+ G  Dokumentation            6 Std.
+ -----------------------------------
+ Gesamt                    80 Std.
+
+
+HINWEIS
+--------
+Diese Arbeitspakete dienen als Checkliste für den Soll-Ist-Vergleich.
+Im Projektverlauf sollte nach Abschluss jedes Arbeitspakets der tatsächliche
+Zeitaufwand kurz notiert werden (z.B. im Berichtsheft), um Abweichungen
+später in der Projektdokumentation (Kapitel "Fazit und Reflexion")
+nachvollziehbar zu begründen.
