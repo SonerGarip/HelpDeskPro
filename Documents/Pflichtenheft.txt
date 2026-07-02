@@ -46,7 +46,7 @@ Benutzer und Techniker.
 users    → id, name, email, password, role, created_at
 categories → id, name
 tickets  → id, title, description, priority, status, category_id,
-           created_by, assigned_to, source, created_at, updated_at
+           created_by, assigned_to, source, server_id, created_at,updated_at
 comments → id, ticket_id, user_id, message, created_at
 servers  → id, name, ip_address, ssh_user, ssh_port, created_at
 server_logs → id, server_id, status, cpu_percent, checked_at
