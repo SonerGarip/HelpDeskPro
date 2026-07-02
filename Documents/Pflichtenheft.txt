@@ -24,7 +24,8 @@ Benutzer und Techniker.
 | L-05 | Tabelle `comments`, 1:n-Beziehung zu `tickets` |
 | L-06 | Tabelle `categories` (n:1 zu `tickets`), Feld `priority` als ENUM |
 | L-07 | Python-Skript (`monitor.py`) prüft per ICMP-Ping die Erreichbarkeit und liest per SSH (paramiko) die CPU-Auslastung aus |
-| L-08 | Bei Nichterreichbarkeit erstellt `monitor.py` automatisiert einen Datensatz in `tickets` (über DB-Verbindung), Quelle als `source = 'monitoring'` gekennzeichnet |
+| L-08 | Bei Nichterreichbarkeit erstellt `monitor.py` automatisiert einen Datensatz in `tickets` (über DB-Verbindung), Quelle als `source = 'monitoring'` gekennzeichnet, server_id auf die ID 
+         des betroffenen Servers gesetzt |
 | L-09 | Session-basierte Authentifizierung, Rollenprüfung je Controller-Methode |
 | L-10 | Reduktion auf zwei Rollen, klar getrennte Dashboards je Rolle |
 | L-11 | `password_hash()`/`password_verify()` (bcrypt), Prepared Statements (PDO), `htmlspecialchars()` gegen XSS |
